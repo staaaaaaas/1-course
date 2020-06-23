@@ -1,0 +1,72 @@
+\documentclass[10pt, a5paper, twoside]{book}
+\usepackage[T2A]{fontenc}
+\usepackage[OT1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\cleardoublepage
+\pagestyle{empty}
+\makeatletter
+\renewcommand\@makefntext[1]{%
+\noindent\makebox[3.65em][r]{\@makefnmark}#1}
+\makeatother
+\renewcommand{\thefootnote}{\arabic{footnote})}
+\renewcommand{\footnotesize}{\small}
+\usepackage[left=1.5cm,right=1.5cm,top=2cm,bottom=0cm]{geometry}
+\headsep=0.2cm
+\tolerance=999
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LE]{{\S} 1]}
+\fancyhead[CE]{\textsc{\footnotesize линейные уравнения с постоянными коэфициентами}}
+\fancyhead[RE]{201}
+\begin{document}
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\abovedisplayshortskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+\setlength{\belowdisplayshortskip}{3pt}
+\hfill \break
+\hfill \break
+\hfill \break
+\begin{center}
+ГЛАВА VI
+\end{center}
+\begin{center}
+\textbf{\scriptsize{ЧАСТНЫЕ ВИДЫ ЛИНЕЙНЫХ ДИФЕРЕНЦИАЛЬНЫХ УРАВНЕНИЙ}}
+\end{center}
+
+\indent\, В\hspace{0.8mm}теории\hspace{0.8mm}диференциальных\hspace{0.8mm}уравнений\hspace{0.8mm}линейные\hspace{0.8mm}уравнения\hspace{0.8mm}являются одним из наиболее интересных отделов. Это\hspace{1.5mm}обусловливается\hspace{1.6mm}как тем, что\hspace{1.8mm}они\hspace{1.9mm}относятся\hspace{1.9mm}к\hspace{1.8mm}типу\hspace{1.9mm}уравнений\hspace{2mm}с\hspace{1.9mm}хорошо\hspace{2mm}разработанной\hspace{2mm}общей\hspace{1.9mm}\linebreak
+теорией, так и широкими возможностями их приложений\hspace{2mm}к\hspace{2mm}физике, механике\hspace{2mm}и т. д.\hspace{2mm}Линейные\hspace{2mm}уравнения\hspace{2mm}содержат\hspace{2mm}несколько\hspace{2mm}классов,\hspace{2mm}для\hspace{2mm}которых\hspace{2mm}до\hspace{2mm}конца\hspace{2mm}решается\hspace{2mm}задача\hspace{2mm}о представлении\hspace{2mm}общего\hspace{2mm}решения\hspace{2mm}при помощи\hspace{2mm}элементарных\hspace{2mm}функций. В\hspace{2mm}тех\hspace{2mm}же\hspace{2mm}случаях, когда\hspace{2mm}такая элементарная интеграция невозможна, часто оказывается необходимым--- ввиду\hspace{2mm}важности\hspace{2mm}данного\hspace{2mm}уравнения,\hspace{2mm}теоретической\hspace{2mm}или\hspace{2mm}прикладной --- исследовать свойства его решений, вводя последние в математический обиход в качестве новых трансцендентных функций. Для линейныйх уравнений такое исследование оказывается значительно проще, чем для нелинейных, так как нам не\hspace{2mm}приходится\hspace{2mm}заботиться\hspace{2mm}об\hspace{2mm}изучении\hspace{2mm}зависимости решения от произвольных постоянных --- оно известно из общей теории. Таким образом для изучения\hspace{2mm}например\hspace{2mm}общего\hspace{2mm}решения\hspace{2mm}линейного уравнения\hspace{2mm}второго\hspace{2mm}порядка\hspace{2mm}достаточно\hspace{2mm}изучить\hspace{2mm}две функции\hspace{2mm}от одного независимого переменного $x$ --- два частных решения.
+
+\indent\, Настоящая глава посвящена тем типам уравнений, для которых задачи интеграции доводятся до конца, а также изложению некоторых свойств линейных уравнений второго порядка.\\
+\begin{center}
+\textbf{\S 1. Линейные уравнения с постоянными коэфициентами и приводимые к ним}\\
+\end{center}
+\textbf{1.} О\hspace{0.7mm}д\hspace{0.7mm}н\hspace{0.7mm}о\hspace{0.7mm}р\hspace{0.7mm}о\hspace{0.7mm}д\hspace{0.7mm}н\hspace{0.7mm}о\hspace{0.7mm}е\hspace{0.7mm}\hspace{2mm}л\hspace{0.7mm}и\hspace{0.7mm}н\hspace{0.7mm}е\hspace{0.7mm}й\hspace{0.7mm}н\hspace{0.7mm}о\hspace{0.7mm}е\hspace{0.7mm}\hspace{2mm}у\hspace{0.7mm}р\hspace{0.7mm}а\hspace{0.7mm}в\hspace{0.7mm}н\hspace{0.7mm}е\hspace{0.7mm}н\hspace{0.7mm}и\hspace{0.7mm}е\hspace{0.7mm}\hspace{2mm}с\hspace{0.7mm}\hspace{2mm}п\hspace{0.7mm}о\hspace{0.7mm}с\hspace{0.7mm}т\hspace{0.7mm}о\hspace{0.7mm}я\hspace{0.7mm}н\hspace{0.7mm}ы\hspace{0.7mm}м\hspace{0.7mm}и\hspace{0.7mm}\hspace{2mm}\linebreak к\hspace{0.7mm}о\hspace{0.7mm}э\hspace{0.7mm}ф\hspace{0.7mm}и\hspace{0.7mm}ц\hspace{0.7mm}и\hspace{0.7mm}е\hspace{0.7mm}н\hspace{0.7mm}т\hspace{0.7mm}а\hspace{0.7mm}м\hspace{0.7mm}и\hspace{0.7mm}. Рассмотрим\hspace{2mm}диференциальное\hspace{2mm}уравнение,\hspace{2mm}линейное однородное $n$-го порядка с коэфициентом при старшей производной, равным единице:
+$$\normalsize{L [y]=\frac{d^{n}y}{dx^{n}}+a\frac{d^{n-1}y}{dx^{n-1}}+a_{2}\frac{d^{n-2}y}{dx^{n-2}}+\ldots+a_{n-1}\frac{dy}{dx}+a_{n}y=0,}$$
+или
+$$\normalsize{L [y]=y^{n}+a_{1}y^{(n-1)}+a_{2}y^{(n-2)}+\ldots+a_{n-1}y^{\prime}+a_{n}y=0.}\eqno (1)$$
+\indent\, В этом параграфе мы будем считать к\hspace{0.7mm}о\hspace{0.7mm}э\hspace{0.7mm}ф\hspace{0.7mm}и\hspace{0.7mm}ц\hspace{0.7mm}и\hspace{0.7mm}е\hspace{0.7mm}н\hspace{0.7mm}т\hspace{0.7mm}ы\hspace{0.7mm} $a_{1},a_{2},\ldots ,a_{n}$\hspace{2mm}\linebreak п\hspace{0.7mm}о\hspace{0.7mm}с\hspace{0.7mm}т\hspace{0.7mm}о\hspace{0.7mm}я\hspace{0.7mm}н\hspace{0.7mm}н\hspace{0.7mm}ы\hspace{0.7mm}м\hspace{0.7mm}и\hspace{0.7mm}\hspace{2mm}(действительными)\hspace{2mm}ч\hspace{0.7mm}и\hspace{0.7mm}с\hspace{0.7mm}л\hspace{0.7mm}а\hspace{0.7mm}м\hspace{0.7mm}и\hspace{0.7mm}.\hspace{2mm}Мы\hspace{2mm}покажем,\hspace{3mm}что\hspace{2mm}\linebreak в таком случае \textit{интеграция\hspace{2mm}уравнения}\hspace{2mm}(1)\hspace{2mm}\textit{всегда\hspace{2mm}возможна\hspace{2mm}в\hspace{2mm}элементарных\hspace{2mm}функциях\hspace{2mm}и\hspace{2mm}сводится} даже\hspace{2mm}не\hspace{2mm}к\hspace{2mm}квадратурам,\hspace{2mm}а\hspace{2mm}\textit{к\hspace{2mm}алгебраическим\hspace{2mm}операциям.}
+
+\indent\, Заметим, что в силу общих свойств линейных уравнений нам достаточно н\hspace{0.7mm}а\hspace{0.7mm}й\hspace{0.7mm}т\hspace{0.7mm}и\hspace{0.7mm} $n$\hspace{0.7mm} ч\hspace{0.7mm}а\hspace{0.7mm}с\hspace{0.7mm}т\hspace{0.7mm}н\hspace{0.7mm}ы\hspace{0.7mm}х\hspace{0.7mm} р\hspace{0.7mm}е\hspace{0.7mm}ш\hspace{0.7mm}е\hspace{0.7mm}н\hspace{0.7mm}и\hspace{0.7mm}й\hspace{0.7mm}, образующих фундаментальную систему, т.е. линейно независимых.
+
+\indent\, Постараемся выяснить себе, какие элементраные функции могли бы обратить уравнение (1) в тождество. Для этого нужно, чтобы по подстановке решения в левую часть уравнения там оказались подобные члены, которые в сумме могли бы дать нуль. Из диференциального исчисления мы знаем функцию, которая подобна со всеми своими производными в смысле элементарной алгебры, эта функция $e^{k\infty}$, где $k$ --- п\hspace{0.7mm}о\hspace{0.7mm}с\hspace{0.7mm}т\hspace{0.7mm}о\hspace{0.7mm}я\hspace{0.7mm}н\hspace{0.7mm}н\hspace{0.7mm}о\hspace{0.7mm}е\hspace{0.7mm}. Итак, попытаемся удовлетворить нашему уравнению, полагая
+$$\normalsize{y=e^{kx},}\eqno (2)$$
+где $k$ --- постоянное, которое мы можем выбирать произовльно. Диференцируя по $x$ выражение (2) один раз, два раза, \ldots, $n$ раз, мы получим следующие функции:
+$$\normalsize{y^{\prime}=k^{2}e^{kx} , \ldots, y^{(n-1)}=k^{n-1}e^{kx}, y^{(n)}=k^{n}e^{kx} .}\eqno (3)$$
+Внося выражения (2) и (3) в левую часть уравнения (1), которую мы обозначим символом оператора $L$, мы получим:
+$$\normalsize{L [e^{kx}]=e^{kx}(k^{n} + a_{1}k^{n-1} + a_{2}k^{n-2} + \ldots + a_{n-1}k + a_{n}).}\eqno (4)$$
+В равентсве (4) в правой части в скобках стоит многочлен $n$-й степени относительно $k$ с постоянными коэфициентами. Он называется \textit{характеристическим многочленом}, соответствующим оператору $L$; обозначим его через $F (k)$;
+$$\normalsize{F (k) \equiv k^{n} + a_{1}k^{n-1} + a_{2}k^{n-2} + \ldots + a_{n-1}k + a_{n}.}$$
+В этих обозначениях равенство (4) кратко запишется так:
+$$\normalsize{L [e^{kx}]=e^{kx} F(k).}\eqno (4^{\prime})$$
+Заметим, что характеристический многочлен получается из оператора $L [y]$, если п\hspace{0.7mm}р\hspace{0.7mm}о\hspace{0.7mm}и\hspace{0.7mm}з\hspace{0.7mm}в\hspace{0.7mm}о\hspace{0.7mm}д\hspace{0.7mm}н\hspace{0.7mm}ы\hspace{0.7mm}е\hspace{0.7mm} различных порядков в этом последнем заменить равными с\hspace{0.7mm}т\hspace{0.7mm}е\hspace{0.7mm}п\hspace{0.7mm}е\hspace{0.7mm}н\hspace{0.7mm}я\hspace{0.7mm}м\hspace{0.7mm}и\hspace{0.7mm} величины $k$. Если выражение (2) есть решение диференциального уравнения (1), то выражение (4) должно тождественно обращаться в нуль. Но множетель $e^{kx} \neq 0$, следовательно, мы должны положить:
+$$\normalsize{F (k) \equiv k^{n} + a_{1}k^{n-1} + a_{2}k^{n-2} + \ldots + a_{n-1}k + a_{n} = 0.}\eqno (5)$$
+Равенство (5) есть алгебраическое уравнение с неизвестным $k$. Оно называется \textit{характеристическим уравнением. Если мы} в качестве постоянного $k$ в выражении (2) \textit{возьмем корень $k_{1}$ характеристического}
+\end{document}
+\grid
