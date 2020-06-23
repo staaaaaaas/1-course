@@ -1,0 +1,74 @@
+178102@client13:~/LABS$ ping ya.ru
+PING ya.ru (87.250.250.242) 56(84) bytes of data.
+64 bytes from ya.ru (87.250.250.242): icmp_seq=1 ttl=58 time=7.07 ms
+64 bytes from ya.ru (87.250.250.242): icmp_seq=2 ttl=58 time=7.19 ms
+64 bytes from ya.ru (87.250.250.242): icmp_seq=3 ttl=58 time=7.17 ms
+64 bytes from ya.ru (87.250.250.242): icmp_seq=4 ttl=58 time=7.17 ms
+64 bytes from ya.ru (87.250.250.242): icmp_seq=5 ttl=58 time=7.30 ms
+^C
+--- ya.ru ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4003ms
+rtt min/avg/max/mdev = 7.078/7.182/7.300/0.103 ms
+178102@client13:~/LABS$ 
+
+78102@client13:~/LABS$ sftp 192.168.2.200
+178102@192.168.2.200's password: 
+Connected to 192.168.2.200.
+sftp> !ls
+lab2  LAB3
+sftp> ls
+Desktop         Documents       Downloads       FORLABS         LABS            
+Music           Pictures        Public          Templates       Videos          
+a.tar.gz        arch            f1              f2              l02-2012.djvu   
+sftp> !pwd
+/stud/178102/LABS
+sftp> cd ..
+sftp> !pwd
+/stud/178102/LABS
+sftp> lcd ..
+sftp> !pwd
+/stud/178102
+sftp> get /stud/178102/Documents/f111
+sftp> put f111 /stud/178102/Documents/d2
+Uploading f111 to /stud/178102/Documents/d2
+f111                                          100%    0     0.0KB/s   00:00    
+sftp> put f1* /stud/178102/Documents/d3
+Uploading f1 to /stud/178102/Documents/d3/f1
+f1                                            100%    4     0.0KB/s   00:00    
+Uploading f111 to /stud/178102/Documents/d3/f111
+f111                                          100%    0     0.0KB/s   00:00    
+Uploading f112 to /stud/178102/Documents/d3/f112
+f112                                          100%   16     0.0KB/s   00:00    
+Uploading f121 to /stud/178102/Documents/d3/f121
+f121                                          100%   89     0.1KB/s   00:00    
+Uploading f122 to /stud/178102/Documents/d3/f122
+f122                                          100%    0     0.0KB/s   00:00    
+Uploading f131 to /stud/178102/Documents/d3/f131
+f131                                          100%    0     0.0KB/s   00:00    
+Uploading f132 to /stud/178102/Documents/d3/f132
+f132                                          100%    0     0.0KB/s   00:00    
+sftp> quit
+178102@client13:~$ ssh 192.168.2.200 ls > fssh
+178102@192.168.2.200's password: 
+Permission denied, please try again.
+178102@192.168.2.200's password: 
+178102@client13:~$ ssh 192.168.2.200 'cat fssh' > fssh1
+178102@192.168.2.200's password: 
+178102@client13:~$ tar -c -f arc f1 f2 fssh fssh1
+178102@client13:~$ tar -t -f arc
+f1
+f2
+fssh
+fssh1
+178102@client13:~$ tar -x -f arc  -C FORLABS
+178102@client13:~$ gzip f1
+178102@client13:~$ gzip -d f1.gz
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,164 @@
+stas@stasPC:~/lab10$ gcc -ggdb rec1.c -o rec1.out
+stas@stasPC:~/lab10$ gdb rec1.out
+
+
+
+GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.5) 7.11.1
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from rec1.out...done.
+(gdb) b main
+Breakpoint 1 at 0x4005f7: file rec1.c, line 22.
+(gdb) l 22
+17	 }
+18	 printf("%d",a);
+19	}
+20	
+21	int main(){
+22	 int a=15;
+23	 int b;
+24	 b=f1(a);
+25	 printf("%d",b);
+26	 printf("\n");
+(gdb) run
+Starting program: /home/stas/lab10/rec1.out 
+
+Breakpoint 1, main () at rec1.c:22
+22	 int a=15;
+(gdb) n
+24	 b=f1(a);
+(gdb) n
+25	 printf("%d",b);
+(gdb) n
+26	 printf("\n");
+(gdb) bt
+#0  main () at rec1.c:26
+(gdb) n
+11
+27	}
+(gdb) n
+__libc_start_main (main=0x4005ef <main>, argc=1, argv=0x7fffffffdf08, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7fffffffdef8) at ../csu/libc-start.c:325
+325	../csu/libc-start.c: Нет такого файла или каталога.
+(gdb)
+
+
+ 
+(gdb) run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /home/stas/lab10/rec1.out 
+
+Breakpoint 1, main () at rec1.c:22
+22	 int a=15;
+(gdb) s
+24	 b=f1(a);
+(gdb) p a
+$1 = 15
+(gdb) p a+3
+$2 = 18
+(gdb) p a
+$3 = 15
+(gdb) s
+f1 (a=15) at rec1.c:6
+6	 a--;
+(gdb) s
+7	 if (a>0){
+(gdb) s
+8	  return f2(a) ;
+(gdb) s
+f2 (a=14) at rec1.c:14
+14	 a= a/2;
+(gdb) s
+15	 if (a>2){
+(gdb) 
+16	  return f1(a);
+(gdb) 
+f1 (a=7) at rec1.c:6
+6	 a--;
+(gdb) 
+7	 if (a>0){
+(gdb) 
+8	  return f2(a) ;
+(gdb) 
+f2 (a=6) at rec1.c:14
+14	 a= a/2;
+(gdb) 
+15	 if (a>2){
+(gdb) 
+16	  return f1(a);
+(gdb) 
+f1 (a=3) at rec1.c:6
+6	 a--;
+(gdb) 
+7	 if (a>0){
+(gdb) 
+8	  return f2(a) ;
+(gdb) 
+f2 (a=2) at rec1.c:14
+14	 a= a/2;
+(gdb) 
+15	 if (a>2){
+(gdb) 
+18	 printf("%d",a);
+(gdb) 
+__printf (format=0x4006b4 "%d") at printf.c:28
+28	printf.c: Нет такого файла или каталога.
+(gdb) bt
+#0  __printf (format=0x4006b4 "%d") at printf.c:28
+#1  0x00000000004005ed in f2 (a=1) at rec1.c:18
+#2  0x0000000000400595 in f1 (a=2) at rec1.c:8
+#3  0x00000000004005d7 in f2 (a=3) at rec1.c:16
+#4  0x0000000000400595 in f1 (a=6) at rec1.c:8
+#5  0x00000000004005d7 in f2 (a=7) at rec1.c:16
+#6  0x0000000000400595 in f1 (a=14) at rec1.c:8
+#7  0x0000000000400608 in main () at rec1.c:24
+
+
+
+(gdb) run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /home/stas/lab10/rec1.out 
+
+Breakpoint 1, main () at rec1.c:22
+22	 int a=15;
+(gdb) b 22
+Note: breakpoint 1 also set at pc 0x4005f7.
+Breakpoint 2 at 0x4005f7: file rec1.c, line 22.
+(gdb) continue
+Continuing.
+11
+[Inferior 1 (process 5904) exited normally]
+(gdb) n
+The program is not being run.
+(gdb) run
+Starting program: /home/stas/lab10/rec1.out 
+
+Breakpoint 1, main () at rec1.c:22
+22	 int a=15;
+(gdb) n
+24	 b=f1(a);
+(gdb) n
+25	 printf("%d",b);
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 5907] will be killed.
+
+Quit anyway? (y or n) y
+stas@stasPC:~/lab10$ 
+
+

@@ -1,0 +1,247 @@
+groups: cannot find name for group ID 1103
+178102@kuantan:~$ cd Documents
+178102@kuantan:~/Documents$ cd d1/d2
+178102@kuantan:~/Documents/d1/d2$ pwd
+/stud/178102/Documents/d1/d2
+178102@kuantan:~/Documents/d1/d2$ cd   
+178102@kuantan:~$ ls 
+Desktop  Documents  Downloads  LABS  Music  Pictures  Public  Templates  Videos
+178102@kuantan:~$ cd Documents/d3
+178102@kuantan:~/Documents/d3$ cd ..
+178102@kuantan:~/Documents$ ls
+#script#  d3  d6    dir3  f111  f121  f131  f211  f231  script
+d1        d5  dir1  f1    f112  f122  f132  f212  f232
+178102@kuantan:~/Documents$ cd 
+178102@kuantan:~$ mkdir FORLABS
+178102@kuantan:~$ cd FORLABS
+178102@kuantan:~/FORLABS$ mkdir d1 d2 d4 d5
+178102@kuantan:~/FORLABS$ cd d1
+178102@kuantan:~/FORLABS/d1$ mkdir d11 d12 d13
+178102@kuantan:~/FORLABS/d1$ cd ..
+178102@kuantan:~/FORLABS$ rmdir d5
+178102@kuantan:~/FORLABS$ mkdir d3
+178102@kuantan:~/FORLABS$ cd d3
+178102@kuantan:~/FORLABS/d3$ mkdir d{1..3}
+178102@kuantan:~/FORLABS/d3$ touch f{1..3}{1..3}{1..3}
+178102@kuantan:~/FORLABS/d3$ rm f[1]*
+178102@kuantan:~/FORLABS/d3$ rm f??[2-3]
+178102@kuantan:~/FORLABS/d3$ cp f331 d2
+178102@kuantan:~/FORLABS/d3$ mv d3 d2
+178102@kuantan:~/FORLABS/d3$ mv f221 f231 f311 d1
+178102@kuantan:~/FORLABS/d3$ cd d1
+178102@kuantan:~/FORLABS/d3/d1$ ls
+f221  f231  f311
+178102@kuantan:~/FORLABS/d3/d1$ cd  
+178102@kuantan:~$ cd FORLABS/d3/d2
+178102@kuantan:~/FORLABS/d3/d2$ ls
+d3  f331
+178102@kuantan:~/FORLABS/d3/d2$ cd ..
+178102@kuantan:~/FORLABS/d3$ cd ..
+178102@kuantan:~/FORLABS$ mkdir d5 && cd d5
+178102@kuantan:~/FORLABS/d5$ 
+178102@kuantan:~/FORLABS/d5$ cd dir1 || mkdir dir1 && cd dir1
+bash: cd: dir1: No such file or directory
+178102@kuantan:~/FORLABS/d5/dir1$ 
+178102@kuantan:~/FORLABS/d5/dir1$ echo $?
+0
+178102@kuantan:~/FORLABS/d5/dir1$ cd ddsfs
+bash: cd: ddsfs: No such file or directory
+178102@kuantan:~/FORLABS/d5/dir1$ echo $?
+1
+178102@kuantan:~/FORLABS/d5/dir1$ 
+178102@kuantan:~/FORLABS/d5/dir1$ pwd
+/stud/178102/FORLABS/d5/dir1
+178102@kuantan:~/FORLABS/d5/dir1$ cd /stud/178102/FORLABS
+178102@kuantan:~/FORLABS$ cat>file1<<EOF
+> 121
+> 214
+> 135
+> 246
+> 246
+> 46
+> 347
+> 457
+> 457
+> 37
+> 3
+> FDSGH
+> SDGJ
+> E
+> YH
+> JGS
+> KHDG
+> 1
+> 12
+> 3
+> 1245
+> EOF
+178102@kuantan:~/FORLABS$ cat < file1
+121
+214
+135
+246
+246
+46
+347
+457
+457
+37
+3
+FDSGH
+SDGJ
+E
+YH
+JGS
+KHDG
+1
+12
+3
+1245
+178102@kuantan:~/FORLABS$ grep 1 < file1
+121
+214
+135
+1
+12
+1245
+178102@kuantan:~/FORLABS$ head file1 > file2
+178102@kuantan:~/FORLABS$ cat >> file2
+22222
+
+22
+^C
+178102@kuantan:~/FORLABS$ tail file2 > file3
+178102@kuantan:~/FORLABS$ cat file2 
+121
+214
+135
+246
+246
+46
+347
+457
+457
+37
+22222
+
+22
+178102@kuantan:~/FORLABS$ cat < file3
+246
+246
+46
+347
+457
+457
+37
+22222
+
+22
+178102@kuantan:~/FORLABS$ a=10000
+178102@kuantan:~/FORLABS$ echo $a
+10000
+178102@kuantan:~/FORLABS$ cd $(pwd)/d5
+178102@kuantan:~/FORLABS/d5$ cd ..
+178102@kuantan:~/FORLABS$ b=$((100+55))
+178102@kuantan:~/FORLABS$ echo $b
+155
+178102@kuantan:~/FORLABS$ chmod a-w file1
+178102@kuantan:~/FORLABS$ chmod a-r file2
+178102@kuantan:~/FORLABS$ chmod 544 file3 
+178102@kuantan:~/FORLABS$ ls -l
+total 32
+drwxr-xr-x 5 178102 1103 4096 Sep 11 08:33 d1
+drwxr-xr-x 2 178102 1103 4096 Sep 11 08:32 d2
+drwxr-xr-x 4 178102 1103 4096 Sep 11 08:46 d3
+drwxr-xr-x 2 178102 1103 4096 Sep 11 08:32 d4
+drwxr-xr-x 3 178102 1103 4096 Sep 11 08:53 d5
+-r--r--r-- 1 178102 1103   77 Sep 11 09:00 file1
+--w------- 1 178102 1103   48 Sep 11 09:05 file2
+-r-xr--r-- 1 178102 1103   36 Sep 11 09:06 file3
+178102@kuantan:~/FORLABS$ evince 
+^Z
+[1]+  Stopped                 evince
+178102@kuantan:~/FORLABS$ evince &
+[2] 21552
+178102@kuantan:~/FORLABS$ evince 
+^Z 
+[3]+  Stopped                 evince
+178102@kuantan:~/FORLABS$ bg
+[3]+ evince &
+178102@kuantan:~/FORLABS$ ps
+  PID TTY          TIME CMD
+21075 pts/0    00:00:00 bash
+21540 pts/0    00:00:00 evince
+21552 pts/0    00:00:00 evince
+21563 pts/0    00:00:00 evince
+21576 pts/0    00:00:00 ps
+178102@kuantan:~/FORLABS$ jobs
+[1]+  Stopped                 evince
+[2]   Running                 evince &
+[3]-  Running                 evince &
+178102@kuantan:~/FORLABS$ kill 21552
+178102@kuantan:~/FORLABS$ kill -9 21540
+[2]   Terminated              evince
+178102@kuantan:~/FORLABS$ killall evince
+[1]+  Killed                  evince
+178102@kuantan:~/FORLABS$ cat | head > file4
+1
+2
+3
+4 
+5
+6
+7
+8
+9
+10
+11
+178102@kuantan:~/FORLABS$ cat file4 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+178102@kuantan:~/FORLABS$ ls /stud | head
+048001
+048002
+048003
+048004
+048005
+048006
+048007
+048008
+048009
+048010
+178102@kuantan:~/FORLABS$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
